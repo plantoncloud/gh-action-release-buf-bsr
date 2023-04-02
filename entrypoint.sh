@@ -34,6 +34,11 @@ planton auth machine login \
   --client-id $PLANTON_CLOUD_SERVICE_CLIENT_ID \
   --client-secret $PLANTON_CLOUD_SERVICE_CLIENT_SECRET
 echo "successfully exchanged planton-cloud machine-account credentials and received an access token"
+
+echo "logging into buf schema registry using credentials from the artifact-store on planton cloud"
+planton product artifact-store repo bsr login --artifact-store-id $PLANTON_CLOUD_ARTIFACT_STORE_ID
+echo "logged into buf schema registry using credentials from the artifact-store on planton cloud"
+
 #consumer projects of this action are expected to have a Makefile in the root of the repository and also
 # a target with name 'release'
 echo "release protobufs to buf schema registry"
